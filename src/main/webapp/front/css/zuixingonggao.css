@@ -1,0 +1,29 @@
+.one_announce{
+	margin-bottom: 20px;
+}
+.announce_title{
+	font-size: 20px;
+	color: #333333;
+}
+.announce_message{
+	width: 740px;
+	margin-top: 5px;
+}
+.announce_img{
+	width: 180px;
+	height: 180px;
+	display: inline-block;
+	float: left;
+}
+.announce_img img{
+	width: 180px;
+	height: 180px;
+}
+.announce_info{
+	width: 540px;
+	height: 180px;
+	display: inline-block;
+	text-indent: 2em;
+	margin-left: 10px;
+	color: #333333;
+}

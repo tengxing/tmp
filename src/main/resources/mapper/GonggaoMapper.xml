@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="online.edu.mapper.GonggaoMapper">
+
+    <resultMap id="GonggaoResult" type="Gonggao">
+        <result property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="content" column="content"/>
+        <result property="time" column="time"/>
+
+    </resultMap>
+
+    <select id="list" parameterType="Map" resultMap="GonggaoResult">
+        select * from t_gonggao
+        <if test="start!=null and size!=null">
+            limit #{start},#{size}
+        </if>
+    </select>
+
+    <select id="listTotal" resultMap="GonggaoResult">
+        select * from t_gonggao
+    </select>
+
+
+    <select id="getCount" resultType="java.lang.Long" parameterType="Map">
+        select count(*) from t_gonggao
+    </select>
+
+    <select id="findById" parameterType="java.lang.Integer" resultMap="GonggaoResult">
+        select * from t_gonggao where id=#{id}
+    </select>
+    <insert id="save" useGeneratedKeys="true" keyProperty="id" parameterType="Gonggao">
+        insert into t_gonggao values(null,#{title},#{content},now(),#{url})
+    </insert>
+
+    <update id="update" parameterType="Gonggao" >
+        update t_gonggao
+        <set>
+
+            title=#{title},
+            content=#{content}
+            url=#{url}
+
+        </set>
+        where id=#{id}
+    </update>
+
+    <delete id="deleteById" parameterType="java.lang.Integer">
+        delete from t_gonggao where id=#{id}
+    </delete>
+
+</mapper>

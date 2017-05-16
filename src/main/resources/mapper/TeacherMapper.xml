@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="online.edu.mapper.TeacherMapper">
+    <resultMap id="TeacherResult" type="Teacher">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="url" column="url"/>
+        <result property="content" column="content"/>
+        <result property="type" column="type"/>
+    </resultMap>
+    <select id="findById" parameterType="Integer" resultMap="TeacherResult">
+        select * from t_tea where id=#{id}
+    </select>
+    <select id="listTotal" resultMap="TeacherResult">
+        select * from t_tea
+    </select>
+    <select id="list" resultMap="TeacherResult" parameterType="Map">
+        select * from t_tea
+        <if test="start!=null and size!=null">
+            limit #{start},#{size}
+        </if>
+    </select>
+    <select id="getCount" parameterType="Map" resultType="java.lang.Long">
+        select count(*) from t_tea
+    </select>
+
+    <insert id="save" useGeneratedKeys="true" keyProperty="id" parameterType="Teacher">
+        insert into t_tea values(null,#{name},#{url},#{content},#{type})
+    </insert>
+
+    <update id="update" parameterType="Teacher">
+        update t_tea
+        <set>
+            parname=#{parname},
+            stuname=#{stuname},
+            age=#{age},
+            school=#{school},
+            classname=#{classname},
+            freetime=#{freetime},
+            coursename=#{coursename},
+            phone=#{phone},
+        </set>
+        where id=#{id}
+    </update>
+
+    <select id="deleteById" parameterType="Integer" resultType="java.lang.Integer">
+        delete from t_tea
+        where id=#{id}
+    </select>
+</mapper>

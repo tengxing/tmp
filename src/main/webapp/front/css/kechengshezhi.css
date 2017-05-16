@@ -1,0 +1,20 @@
+.kechengshezhi_img{
+	width: 740px;
+	text-align: center;
+	margin-bottom: 10px;
+}
+.kechengshezhi_img img{
+	width: 700px;
+}
+.kechengshezhi_small_title{
+	font-size: 20px;
+	font-family: 楷体;
+}
+.kechengshezhi_info{
+	font-size: 14px;
+	text-indent: 2em;
+	color: #333333;
+	margin-top: 8px;
+	margin-bottom: 20px;
+	line-height: 26px;
+}

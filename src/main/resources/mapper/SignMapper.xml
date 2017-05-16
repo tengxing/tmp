@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="online.edu.mapper.SignMapper">
+    <resultMap id="SignResult" type="Sign">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="content" column="content"/>
+    </resultMap>
+    <select id="findById" parameterType="Integer" resultMap="SignResult">
+        select * from t_sign where id=#{id}
+    </select>
+    <select id="listTotal" resultMap="SignResult">
+        select * from t_sign
+    </select>
+    <select id="list" resultMap="SignResult" parameterType="Map">
+        select * from t_sign
+        <if test="start!=null and size!=null">
+            limit #{start},#{size}
+        </if>
+    </select>
+    <select id="getCount" parameterType="Map" resultType="java.lang.Long">
+        select count(*) from t_sign
+    </select>
+
+    <insert id="save" useGeneratedKeys="true" keyProperty="id" parameterType="Sign">
+        insert into t_sign values(null,#{name},#{content})
+    </insert>
+
+    <update id="update" parameterType="Sign">
+        update t_sign
+        <set>
+            name=#{name},
+            content=#{content}
+        </set>
+        where id=#{id}
+    </update>
+
+    <select id="deleteById" parameterType="Integer" resultType="java.lang.Integer">
+        delete from t_sign
+        where id=#{id}
+    </select>
+</mapper>

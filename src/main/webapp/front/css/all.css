@@ -1,0 +1,99 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+#all_bottom{
+	width: 1000px;
+	margin: 0 auto;
+}
+#all_left{
+	width: 230px;
+	font-size: 18px;
+	font-family: "微软雅黑";
+	text-align: center;
+	background: #FFFFFF;
+	display: inline-block;
+	float: left;
+	padding-bottom: 30px;
+}
+#all_left_title{
+	width: 200px;
+	height: 55px;
+	line-height: 55px;
+	font-weight: bold;
+	color: #676767;
+	border-bottom: 2px solid;
+}
+#all_left ul{
+	list-style-type: none;
+}
+#all_left ul li{
+	width: 200px;
+	height: 45px;
+	line-height: 45px;
+	border-bottom: 1px solid #EFEFEF;
+}
+#all_left ul li a{
+	text-decoration: none;
+	color: #8C8C8C;
+	font-size: 16px;
+}
+#all_left ul li a:hover{
+	color: #333333;
+}
+.all_right{
+	width: 740px;
+	padding-left: 30px;
+	padding-top: 20px;
+	padding-bottom: 30px;
+	font-family: "微软雅黑";
+	display: inline-block;
+}
+.all_right_title{
+	width: 740px;
+	height: 30px;
+	font-size: 16px;
+	color: #676767;
+	border-bottom: 1px solid #F0F0F0;
+	margin-bottom: 20px;
+}
+.all_right_page_number{
+	width: 740px;
+}
+.all_right_page_number ul{
+	list-style-type: none;
+	text-align: center;
+}
+.all_right_page_number ul li{
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	color: #999999;
+	font-size: 12px;
+	background: #F8F8F8;
+	text-align: center;
+	margin: 30px 5px 5px 0px;
+	display: inline-block;
+	cursor: pointer;
+	border: 1px solid #E5E5E5;
+}
+#all_application_of_testing{
+	width: 200px;
+	font-family: "微软雅黑";
+	margin-top: 20px;
+	border: 1px solid #CDCDCD;
+}
+#all_application_of_testing input{
+	width: 88px;
+	height: 30px;
+	margin: 3px;
+	border-radius: 6px;
+	border: 1px solid #E1E1E1;
+	outline: none;
+	text-align: center;
+}
+#all_application_of_testing input[type=button]{
+	width: 190px;
+	cursor: pointer;
+}
+

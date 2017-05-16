@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="online.edu.mapper.CourseTypeMapper">
+    <resultMap id="CourseTypeResult" type="CourseType">
+        <result property="id" column="id"/>
+        <result property="typeName" column="typeName"/>
+        <result property="releaseDate" column="releaseDate"/>
+    </resultMap>
+    <select id="findById" parameterType="Integer" resultMap="CourseTypeResult">
+        select * from t_courseType where id=#{id}
+    </select>
+    <select id="listTotal" resultMap="CourseTypeResult">
+        select * from t_courseType
+    </select>
+    <select id="list" resultMap="CourseTypeResult" parameterType="Map">
+        select * from t_courseType
+        <if test="start!=null and size!=null">
+            limit #{start},#{size}
+        </if>
+    </select>
+    <select id="getCount" parameterType="Map" resultType="java.lang.Long">
+        select count(*) from t_courseType
+    </select>
+
+    <insert id="save" useGeneratedKeys="true" keyProperty="id" parameterType="CourseType">
+        insert into t_courseType values(null,#{typeName},now())
+    </insert>
+
+    <update id="update" parameterType="CourseType">
+        update t_courseType
+        <set>
+            <if test="typeName!=null and typeName!='' ">
+                typeName=#{typeName},
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <select id="deleteById" parameterType="Integer" resultType="java.lang.Integer">
+        delete from t_courseType
+        where id=#{id}
+    </select>
+</mapper>
